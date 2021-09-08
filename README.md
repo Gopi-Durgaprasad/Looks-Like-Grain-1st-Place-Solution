@@ -10,6 +10,7 @@ In this challenge, task is correctly classifying images of oat, wheat, barley, a
 
 Examples:
 
+![Example](example.png)
 
 
 ### MODEL SUMMARY
