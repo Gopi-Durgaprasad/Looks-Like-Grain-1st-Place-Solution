@@ -35,7 +35,7 @@ In this challenge, task is correctly classifying images of oat, wheat, barley, a
 ### Preprocessing Step
 - we are resizing the original images into 224x224x3 
 - for resizing we have used PLI and tensorflow image librarys and converted into `uint8` to reduce space.
-```
+```python
         img = Image.open(fn)
         img = img.convert('RGB')
         img = img.resize((IMG_SIZE, IMG_SIZE), Image.NEAREST)
@@ -53,7 +53,7 @@ In this challenge, task is correctly classifying images of oat, wheat, barley, a
 - We used `Albumentation` library for augmentations.
 - we tried lots of complex augmentations but model did NOT converge faster.
 - because of less time we needed to converge faster Hence we used simple augmentations.
-```
+```python
 A.Compose([
         A.Transpose(p=0.2),
         A.VerticalFlip(p=0.2),
@@ -73,7 +73,7 @@ A.Compose([
 ### Schedulers
 - We tried lots of schedulers like `ExponentialDecay`, `CosineDecayRestarts`, `CyclicLR`.
 - but at the end `ReduceLROnPlateau` works well for us.
-```
+```python
 lr_reducer1 = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", patience=2, min_lr=1e-6, factor=0.1)
 ```
 - if our validation loss did not decrease for 2 epochs we multipy lr with factor `0.1`
@@ -82,7 +82,7 @@ lr_reducer1 = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss", patience=
 
 ### Models
 - we used `Efficientnet` pretraied models.
-```
+```python
 def build_model1(num_classes):
     inp = tf.keras.layers.Input(shape=(IMG_SIZE,IMG_SIZE,3))
     scaled_input = layers.experimental.preprocessing.Rescaling(1./255,name="rescaling")(inp)
@@ -116,7 +116,7 @@ def build_model1(num_classes):
 
 ### Saving Checkpoints
 - we tracked and saved best `val_accuracy` models those gives best results in public leaderbord.
-```
+```python
 checkpoint = tf.keras.callbacks.ModelCheckpoint(
     save_path, 
     monitor='val_accuracy', 
@@ -144,7 +144,7 @@ checkpoint = tf.keras.callbacks.ModelCheckpoint(
 - initially class weights work very well for us.
 - we reached `0.9841` without any postprocessing using class weights only.
 
-```
+```python
 def w(x):
     if "_SOUND" in x:
         return 8.94 # weighting  Healthy grains more important than defective grains
