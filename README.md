@@ -14,13 +14,14 @@
 - **Private Leaderbord Score:** 0.98727
 - **Public Leaderbord Score:** 0.98683
 
+- Name: Gopi Durgaprasad
+- Location: India, Andhra Pradesh, Annavaram.
+- Email: gopidurgaprasad762@gmail.com
+
 - Name: Shravan Kumar Koninti
 - Location: India, Telangana, Hyderabad.
 - Email: shravankumar224@gmail.com
 
-- Name: Gopi Durgaprasad
-- Location: India, Andhra Pradesh, Annavaram.
-- Email: gopidurgaprasad762@gmail.com
 
 ### Preprocessing Step
 - we are resizing the original images into 224x224x3 
