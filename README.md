@@ -1,10 +1,15 @@
 # 1st place solution in Looks Like Grain
 
+Competition Page : https://unearthed.solutions/u/competitions/109/ 
+
 ### The Problem
 The current visual inspection of grain is performed manually by a person. At the scale CBH operates, this manual inspection can be a time-consuming, resource-intensive process. Through the use of computer vision machine learning, CBH is seeking to increase the efficiency of this inspection process.
 
 ### The Challenge
 In this challenge, task is correctly classifying images of oat, wheat, barley, and weed grains. Each grain has a range of potential defects that may or may not be present within each image.
+
+Examples:
+
 
 
 ### MODEL SUMMARY
